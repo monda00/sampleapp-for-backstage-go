@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: backstage-example
+  description: Backstage Example
+spec:
+  owner: artist-relations-team
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: backstage-example-app
+  description: This is a sample app for Backstage.
+spec:
+  owner: masa
+  domain: backstage-example
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sampleapp-for-backstage-go
+  description: |
+    This is [sample app](https://github.com/monda00/sampleapp-for-backstage-go) for Backstage.
+  links:
+    - url: https://github.com/monda00/sampleapp-for-backstage-go
+      title: GitHub Repo
+      icon: github
+spec:
+  type: backend-app
+  lifecycle: prduction
+  system: backstage-example-app
+  owner: masa
+  dependsOn:
+    - resource:backend-db
+  providesApis:
+    - sample-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: sample-api
+  description: Sample API
+spec:
+  type: openapi
+  lifecycle: production
+  owner: masa
+  apiConsumedBy:
+    - backstage-demo
+  definition:
+    $text: https://github.com/APIs-guru/openapi-directory/blob/main/APIs/archive.org/search/1.0.0/openapi.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backend-db
+  description: Stores backend-app data
+spec:
+  type: database
+  owner: db-team
+  system: backstage-example-app
