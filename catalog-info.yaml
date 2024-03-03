@@ -1,12 +1,4 @@
 apiVersion: backstage.io/v1alpha1
-kind: Domain
-metadata:
-  name: backstage-example
-  description: Backstage Example
-spec:
-  owner: artist-relations-team
----
-apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: backstage-example-app
@@ -26,7 +18,7 @@ metadata:
       title: GitHub Repo
       icon: github
 spec:
-  type: backend-app
+  type: backend
   lifecycle: prduction
   system: backstage-example-app
   owner: masa
