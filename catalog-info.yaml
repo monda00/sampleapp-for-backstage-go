@@ -20,7 +20,7 @@ metadata:
       title: GitHub Repo
       icon: github
 spec:
-  type: backend
+  type: service
   lifecycle: prduction
   system: backstage-example-app
   owner: masa
