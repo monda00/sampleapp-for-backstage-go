@@ -15,6 +15,7 @@ metadata:
     This is [sample app](https://github.com/monda00/sampleapp-for-backstage-go) for Backstage.
   annotations:
     'backstage.io/kubernetes-id': 'sampleapp-for-backstage-go'
+    backstage.io/techdocs-ref: dir:.
   links:
     - url: https://github.com/monda00/sampleapp-for-backstage-go
       title: GitHub Repo
